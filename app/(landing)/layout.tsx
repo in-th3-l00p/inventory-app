@@ -1,7 +1,12 @@
+import Header from "./components/header";
+
 export default function LandingLayout({ children }: { children: React.ReactNode }) {
     return (
-        <main className="min-h-screen">
-            {children}
-        </main>
+        <div className="min-h-screen overflow-x-hidden">
+            <Header />
+            <main>
+                {children}
+            </main>
+        </div>
     );
 }
