@@ -1,21 +1,14 @@
 "use client";
 
-import { PrivyProvider } from "@privy-io/react-auth";
+import SupabaseProvider from "./supabase";
+import InnerPrivyProvider from "./privy";
 
-export default function AuthProvider({ children }: { children: React.ReactNode }) {
+export default function Provider({ children }: { children: React.ReactNode }) {
     return (
-        <PrivyProvider
-          appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID!}
-          clientId={process.env.NEXT_PUBLIC_PRIVY_CLIENT_ID!}
-          config={{
-            embeddedWallets: {
-              ethereum: {
-                createOnLogin: 'users-without-wallets'
-              }
-            }
-          }}
-        >
+      <SupabaseProvider>
+        <InnerPrivyProvider>
           {children}
-        </PrivyProvider>
+        </InnerPrivyProvider>
+      </SupabaseProvider>
     );
 }
