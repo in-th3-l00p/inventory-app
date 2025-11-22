@@ -15,21 +15,13 @@ export default function InnerPrivyProvider({children}: {children: React.ReactNod
       return undefined;
     }
 
+    console.log(data.session?.access_token);
     return data.session?.access_token || undefined;
   }
 
   return (
     <PrivyProvider
       appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID || ''}
-      config={{
-        customAuth: {
-          isLoading: loading,
-          getCustomAccessToken: getCustomAuthToken
-        },
-        embeddedWallets: {
-          createOnLogin: 'all-users'
-        }
-      }}
     >
       {children}
     </PrivyProvider>

@@ -7,12 +7,7 @@ export default function LoginButton({ className }: { className: string }) {
 
     if (!ready) {
         return (
-            <button
-                className={className}
-                disabled
-            >
-                Loading...
-            </button>
+            <></>
         )
     }
     if (ready && authenticated) {
