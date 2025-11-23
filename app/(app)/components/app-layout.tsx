@@ -32,6 +32,11 @@ import {
 import { useLogout } from '@privy-io/react-auth';
 import { useRouter } from 'next/navigation';
 
+const links = [
+  { href: '/dashboard', label: 'dashboard', icon: HomeIcon },
+  { href: '/rewards', label: 'rewards', icon: InboxIcon },
+]
+
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const { logout } = useLogout();
   const router = useRouter();
@@ -89,10 +94,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           </SidebarHeader>
           <SidebarBody>
             <SidebarSection>
-              <SidebarItem href="/dashboard">
-                <HomeIcon />
-                <SidebarLabel>dashboard</SidebarLabel>
-              </SidebarItem>
+              {links.map((link) => (
+                <SidebarItem key={link.href} href={link.href}>
+                  <link.icon />
+                  <SidebarLabel>{link.label}</SidebarLabel>
+                </SidebarItem>
+              ))}
             </SidebarSection>
             <SidebarSpacer />
           </SidebarBody>
