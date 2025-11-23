@@ -4,12 +4,12 @@ import { Stat } from './stat'
 export default function Stats() {
     return (
         <section>
-            <Subheading>Overview</Subheading>
+            <Subheading>overview</Subheading>
             <div className="mt-4 grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
-                <Stat title="Total revenue" value="$2.6M" change="+4.5%" />
-                <Stat title="Average order value" value="$455" change="-0.5%" />
-                <Stat title="Tickets sold" value="5,888" change="+4.5%" />
-                <Stat title="Pageviews" value="823,067" change="+21.2%" />
+                <Stat title="saved amount" value="$2.6M" change="+4.5%" />
+                <Stat title="funded amount" value="$455" change="-0.5%" />
+                <Stat title="rewards" value="123" change="+4.5%" />
+                <Stat title="funding received" value="$1234" change="+21.2%" />
             </div>
         </section>
     )
