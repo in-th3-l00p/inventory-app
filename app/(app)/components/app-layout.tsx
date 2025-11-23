@@ -81,7 +81,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             <SidebarSection>
               <SidebarItem href="/dashboard">
                 <HomeIcon />
-                <SidebarLabel>Dashboard</SidebarLabel>
+                <SidebarLabel>dashboard</SidebarLabel>
               </SidebarItem>
             </SidebarSection>
             <SidebarSpacer />
