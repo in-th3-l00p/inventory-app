@@ -35,10 +35,10 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <Navbar>
           <NavbarSpacer />
           <NavbarSection>
-            <NavbarItem href="/search" aria-label="Search">
+            <NavbarItem href="/search" aria-label="search">
               <MagnifyingGlassIcon />
             </NavbarItem>
-            <NavbarItem href="/inbox" aria-label="Inbox">
+            <NavbarItem href="/inbox" aria-label="inbox">
               <InboxIcon />
             </NavbarItem>
             <Dropdown>
@@ -48,7 +48,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
               <DropdownMenu className="min-w-64" anchor="bottom end">
                 <DropdownItem href="/logout">
                   <ArrowRightStartOnRectangleIcon />
-                  <DropdownLabel>Logout</DropdownLabel>
+                  <DropdownLabel>logout</DropdownLabel>
                 </DropdownItem>
               </DropdownMenu>
             </Dropdown>
@@ -62,18 +62,18 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
               <DropdownMenu className="min-w-80 lg:min-w-64" anchor="bottom start">
                 <DropdownItem href="/logout">
                   <ArrowRightStartOnRectangleIcon />
-                  <DropdownLabel>Logout</DropdownLabel>
+                  <DropdownLabel>logout</DropdownLabel>
                 </DropdownItem>
               </DropdownMenu>
             </Dropdown>
             <SidebarSection className="max-lg:hidden">
               <SidebarItem href="/search">
                 <MagnifyingGlassIcon />
-                <SidebarLabel>Search</SidebarLabel>
+                <SidebarLabel>search</SidebarLabel>
               </SidebarItem>
               <SidebarItem href="/inbox">
                 <InboxIcon />
-                <SidebarLabel>Inbox</SidebarLabel>
+                <SidebarLabel>inbox</SidebarLabel>
               </SidebarItem>
             </SidebarSection>
           </SidebarHeader>
