@@ -1,3 +1,5 @@
+"use client";
+
 import { Avatar } from '@/components/avatar'
 import {
   Dropdown,
@@ -27,8 +29,13 @@ import {
   InboxIcon,
   MagnifyingGlassIcon,
 } from '@heroicons/react/20/solid'
+import { useLogout } from '@privy-io/react-auth';
+import { useRouter } from 'next/navigation';
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
+  const { logout } = useLogout();
+  const router = useRouter();
+
   return (
     <SidebarLayout
       navbar={
@@ -46,7 +53,10 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 <Avatar src="/profile-photo.jpg" square />
               </DropdownButton>
               <DropdownMenu className="min-w-64" anchor="bottom end">
-                <DropdownItem href="/logout">
+                <DropdownItem onClick={() => {
+                  logout();
+                  router.push('/');
+                }}>
                   <ArrowRightStartOnRectangleIcon />
                   <DropdownLabel>logout</DropdownLabel>
                 </DropdownItem>
@@ -101,7 +111,10 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 <ChevronUpIcon />
               </DropdownButton>
               <DropdownMenu className="min-w-64" anchor="top start">
-                <DropdownItem href="/logout">
+                <DropdownItem onClick={() => {
+                  logout();
+                  router.push('/');
+                }}>
                   <ArrowRightStartOnRectangleIcon />
                   <DropdownLabel>logout</DropdownLabel>
                 </DropdownItem>
