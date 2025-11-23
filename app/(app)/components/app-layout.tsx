@@ -1,12 +1,12 @@
-import { Avatar } from './ui/avatar'
+import { Avatar } from '@/components/avatar'
 import {
   Dropdown,
   DropdownButton,
   DropdownItem,
   DropdownLabel,
   DropdownMenu,
-} from './ui/dropdown'
-import { Navbar, NavbarItem, NavbarSection, NavbarSpacer } from './ui/navbar'
+} from '@/components/dropdown'
+import { Navbar, NavbarItem, NavbarSection, NavbarSpacer } from '@/components/navbar'
 import {
   Sidebar,
   SidebarBody,
@@ -16,12 +16,12 @@ import {
   SidebarLabel,
   SidebarSection,
   SidebarSpacer,
-} from './ui/sidebar'
-import { SidebarLayout } from './ui/sidebar-layout'
+} from '@/components/sidebar'
+import { SidebarLayout } from '@/components/sidebar-layout'
 import {
   ArrowRightStartOnRectangleIcon,
   ChevronUpIcon,
-} from '@heroicons/react/16/solid'
+} from '@heroicons/react/20/solid'
 import {
   HomeIcon,
   InboxIcon,
