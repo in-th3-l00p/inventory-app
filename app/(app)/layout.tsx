@@ -2,8 +2,9 @@
 
 import { usePrivy } from "@privy-io/react-auth";
 import NotFound from "@/app/not-found";
+import AppLayout from "./components/app-layout";
 
-export default function AppLayout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
     const { ready, authenticated, user } = usePrivy();
 
     if (!ready) {
@@ -14,6 +15,8 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     }
 
     return (
-        <>{children}</>
+        <AppLayout>
+            {children}
+        </AppLayout>
     )
 }
