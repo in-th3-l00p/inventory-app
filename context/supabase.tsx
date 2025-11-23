@@ -1,15 +1,11 @@
 'use client';
 
-import {createContext, useContext, useEffect, useMemo, useState} from 'react';
-import {SupabaseClient, Session, User} from '@supabase/supabase-js';
-import {usePathname, useRouter} from 'next/navigation';
+import {createContext, useContext, useMemo} from 'react';
+import {SupabaseClient} from '@supabase/supabase-js';
 import {createSupabaseClient} from '@/lib/supabase/client';
 
 interface SupabaseContextType {
   supabase: SupabaseClient;
-  session: Session | null;
-  user: User | null;
-  loading: boolean;
 }
 
 const SupabaseContext = createContext<SupabaseContextType | undefined>(undefined);
@@ -23,48 +19,10 @@ export const useSupabase = () => {
 };
 
 export default function SupabaseProvider({children}: {children: React.ReactNode}) {
-  const [session, setSession] = useState<Session | null>(null);
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
-  const router = useRouter();
-  const pathname = usePathname();
-
   const supabase = useMemo(() => createSupabaseClient(), []);
 
-  useEffect(() => {
-    supabase.auth
-      .getSession()
-      .then(({data: {session}}) => {
-        setSession(session);
-        setUser(session?.user || null);
-        setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
-      });
-
-    const {data: authListener} = supabase.auth.onAuthStateChange(async (event, currentSession) => {
-      setSession(currentSession);
-      setUser(currentSession?.user || null);
-      setLoading(false);
-
-      // Optional: Redirect based on auth state
-      if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
-        // console.log("User signed in or token refreshed");
-        // router.push("/dashboard"); // Example redirect
-      } else if (event === 'SIGNED_OUT') {
-        // console.log("User signed out");
-        router.push('/'); // Example redirect
-      }
-    });
-
-    return () => {
-      authListener.subscription.unsubscribe();
-    };
-  }, [pathname]);
-
   return (
-    <SupabaseContext.Provider value={{supabase, session, user, loading}}>
+    <SupabaseContext.Provider value={{supabase}}>
       {children}
     </SupabaseContext.Provider>
   );

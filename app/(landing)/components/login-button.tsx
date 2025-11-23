@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function LoginButton({ className }: { className: string }) {
     const { login } = useLogin();
-    const { ready, authenticated } = usePrivy();    
+    const { ready, authenticated, user } = usePrivy();    
 
     if (!ready) {
         return (
