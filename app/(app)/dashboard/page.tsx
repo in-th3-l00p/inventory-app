@@ -1,7 +1,9 @@
+import Stats from "./components/stats";
+
 export default function DashboardPage() {
     return (
-        <div>
-            <h1>Dashboard</h1>
-        </div>
+        <main className="space-y-10">
+            <Stats />
+        </main>
     )
 }
